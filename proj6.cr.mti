@@ -1,0 +1,29 @@
+C:/Users/exue/Documents/2017-2018/ECE111/proj6/adder_fp.sv {1 {vlog -work work -sv -stats=none C:/Users/exue/Documents/2017-2018/ECE111/proj6/adder_fp.sv
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module adder_fp
+
+Top level modules:
+	adder_fp
+
+} {} {}} C:/Users/exue/Documents/2017-2018/ECE111/proj6/fir_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/exue/Documents/2017-2018/ECE111/proj6/fir_tb.sv
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module m_fir_tb
+
+Top level modules:
+	m_fir_tb
+
+} {} {}} C:/Users/exue/Documents/2017-2018/ECE111/proj6/SSE.sv {1 {vlog -work work -sv -stats=none C:/Users/exue/Documents/2017-2018/ECE111/proj6/SSE.sv
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module SSE
+
+Top level modules:
+	SSE
+
+} {} {}} C:/Users/exue/Documents/2017-2018/ECE111/proj6/multiplier_fp.sv {1 {vlog -work work -sv -stats=none C:/Users/exue/Documents/2017-2018/ECE111/proj6/multiplier_fp.sv
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module multiplier_fp
+
+Top level modules:
+	multiplier_fp
+
+} {} {}}

@@ -1,8 +1,8 @@
+%% Parameters
 Fs = 500;                                  % Sampling frequency
 T = 1/Fs;                                    % Sample time
 L = 1000;                                   % Length of signal
 t = (0:L-1)*T;                             % Time vector
-
 
 fig = figure('units','normalized','outerposition',[0 0 1 1]);
 subplot(3,1,1);
@@ -26,10 +26,10 @@ ylabel('Magnitude','FontSize',22,'FontWeight','Bold');
 title('Input Signal with Added Noise','FontSize',32,'FontWeight','Bold');
 
 %% Bandpass filter the input signal using symmetric FIR with min zeros
-Fstop1 = 30;    % First Stopband Frequency
+Fstop1 = 28.8;    % First Stopband Frequency original: 30
 Fpass1 = 35;    % First Passband Frequency
 Fpass2 = 200;   % Second Passband Frequency
-Fstop2 = 205;   % Second Stopband Frequency
+Fstop2 = 206.2;   % Second Stopband Frequency original: 205
 Astop1 = 60;    % First Stopband Attenuation (dB)
 Apass  = 1;     % Passband Ripple (dB)
 Astop2 = 60;    % Second Stopband Attenuation (dB)
@@ -64,4 +64,9 @@ xlabel('Frequency (Hz)','FontSize',22,'FontWeight','Bold');
 ylabel('|Y(f)|','FontSize',22,'FontWeight','Bold');
 title('Spectral Energy Windowed and Bandpass Filtered 35-200Hz','FontSize',32,'FontWeight','Bold');
 
-
+%% write to file
+fid = fopen('coef.txt', 'w');
+for i = 1 : size(filt_mdl.Numerator, 2)
+    fprintf (fid,'%s,\n', num2hex(single(filt_mdl.Numerator(i))));
+end
+fclose(fid);

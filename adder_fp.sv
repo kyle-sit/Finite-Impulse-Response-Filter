@@ -42,7 +42,12 @@ module adder_fp(
 			checks: begin
 				busy <= 1;
 				if (A == 0) begin
-					Y <= B;
+					if (!op) begin
+						Y <= B;
+					end
+					else begin
+						Y <= {!B[31], B[30:0]};
+					end
 					isSet <= 1;
 					state <= finished;
 				end

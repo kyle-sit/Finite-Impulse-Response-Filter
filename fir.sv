@@ -1,162 +1,3 @@
-module fir_decoder (
-	input logic [7:0] in,
-	output logic [31:0] out
-);
-
-always_comb begin
-	case (in)
-		8'd1: out = 32'hbc06ca4c; 
-		8'd2: out = 32'hbb86b56d; 
-		8'd3: out = 32'h3c8493ff; 
-		8'd4: out = 32'h3bd1ba42; 
-		8'd5: out = 32'hbb8b5502; 
-		8'd6: out = 32'h3b373752; 
-		8'd7: out = 32'hbbb85463; 
-		8'd8: out = 32'hbb686092; 
-		8'd9: out = 32'hbaa9b425; 
-		8'd10: out = 32'hbbbc6406; 
-		8'd11: out = 32'h3ac7e136; 
-		8'd12: out = 32'hbb13cfee; 
-		8'd13: out = 32'h3a9e292e; 
-		8'd14: out = 32'h3b6b0993; 
-		8'd15: out = 32'h379a8626; 
-		8'd16: out = 32'h3bccb77f; 
-		8'd17: out = 32'h3a1e2a32; 
-		8'd18: out = 32'h3b430c5f; 
-		8'd19: out = 32'h3b1e2e7e; 
-		8'd20: out = 32'hbb4c87e1; 
-		8'd21: out = 32'h3b01c058; 
-		8'd22: out = 32'hbbc3bfed; 
-		8'd23: out = 32'hbb1731b3; 
-		8'd24: out = 32'hbb49c9bc; 
-		8'd25: out = 32'hbbd875d2; 
-		8'd26: out = 32'h3ae6fe6a; 
-		8'd27: out = 32'hbba1ae72; 
-		8'd28: out = 32'h3b54f3ca; 
-		8'd29: out = 32'h3b524155; 
-		8'd30: out = 32'h3a95af73; 
-		8'd31: out = 32'h3c27a647; 
-		8'd32: out = 32'h389119a3; 
-		8'd33: out = 32'h3c014658; 
-		8'd34: out = 32'h3b18dd0d; 
-		8'd35: out = 32'hbb34e966; 
-		8'd36: out = 32'h3b6e4f7d; 
-		8'd37: out = 32'hbc376c18; 
-		8'd38: out = 32'hbab5f4f3; 
-		8'd39: out = 32'hbc0f9d82; 
-		8'd40: out = 32'hbc211979; 
-		8'd41: out = 32'h3aaaf59d; 
-		8'd42: out = 32'hbc33a32e; 
-		8'd43: out = 32'h3bff0daf; 
-		8'd44: out = 32'h3a95beeb; 
-		8'd45: out = 32'h3ba93beb; 
-		8'd46: out = 32'h3c8bbf64; 
-		8'd47: out = 32'hb7f820de; 
-		8'd48: out = 32'h3c9c2bac; 
-		8'd49: out = 32'h3a741f9a; 
-		8'd50: out = 32'h3a94f0d3; 
-		8'd51: out = 32'h3baf7891; 
-		8'd52: out = 32'hbcab8865; 
-		8'd53: out = 32'h3aa3dbd1; 
-		8'd54: out = 32'hbcc6ccbc; 
-		8'd55: out = 32'hbc6d9da8; 
-		8'd56: out = 32'hbb8e2c53; 
-		8'd57: out = 32'hbccb036a; 
-		8'd58: out = 32'h3c9541a6; 
-		8'd59: out = 32'hbc0285df; 
-		8'd60: out = 32'h3ca7920f; 
-		8'd61: out = 32'h3d0353c8; 
-		8'd62: out = 32'h3b939c61; 
-		8'd63: out = 32'h3d68738a; 
-		8'd64: out = 32'hbb9b5561; 
-		8'd65: out = 32'h3ccf1a8f; 
-		8'd66: out = 32'h3bd599a9; 
-		8'd67: out = 32'hbd6f422c; 
-		8'd68: out = 32'h3c46e4b1; 
-		8'd69: out = 32'hbe06636d; 
-		8'd70: out = 32'hbd375f0e; 
-		8'd71: out = 32'hbdca0818; 
-		8'd72: out = 32'hbe825a8b; 
-		8'd73: out = 32'h3ef5580e; 
-		/*8'd74: out = 32'h3ef5580e; 
-		8'd75: out = 32'hbe825a8b; 
-		8'd76: out = 32'hbdca0818; 
-		8'd77: out = 32'hbd375f0e; 
-		8'd78: out = 32'hbe06636d; 
-		8'd79: out = 32'h3c46e4b1; 
-		8'd80: out = 32'hbd6f422c; 
-		8'd81: out = 32'h3bd599a9; 
-		8'd82: out = 32'h3ccf1a8f; 
-		8'd83: out = 32'hbb9b5561; 
-		8'd84: out = 32'h3d68738a; 
-		8'd85: out = 32'h3b939c61; 
-		8'd86: out = 32'h3d0353c8; 
-		8'd87: out = 32'h3ca7920f; 
-		8'd88: out = 32'hbc0285df; 
-		8'd89: out = 32'h3c9541a6; 
-		8'd90: out = 32'hbccb036a; 
-		8'd91: out = 32'hbb8e2c53; 
-		8'd92: out = 32'hbc6d9da8; 
-		8'd93: out = 32'hbcc6ccbc; 
-		8'd94: out = 32'h3aa3dbd1; 
-		8'd95: out = 32'hbcab8865; 
-		8'd96: out = 32'h3baf7891; 
-		8'd97: out = 32'h3a94f0d3; 
-		8'd98: out = 32'h3a741f9a; 
-		8'd99: out = 32'h3c9c2bac; 
-		8'd100: out = 32'hb7f820de; 
-		8'd101: out = 32'h3c8bbf64; 
-		8'd102: out = 32'h3ba93beb; 
-		8'd103: out = 32'h3a95beeb; 
-		8'd104: out = 32'h3bff0daf; 
-		8'd105: out = 32'hbc33a32e; 
-		8'd106: out = 32'h3aaaf59d; 
-		8'd107: out = 32'hbc211979; 
-		8'd108: out = 32'hbc0f9d82; 
-		8'd109: out = 32'hbab5f4f3; 
-		8'd110: out = 32'hbc376c18; 
-		8'd111: out = 32'h3b6e4f7d; 
-		8'd112: out = 32'hbb34e966; 
-		8'd113: out = 32'h3b18dd0d; 
-		8'd114: out = 32'h3c014658; 
-		8'd115: out = 32'h389119a3; 
-		8'd116: out = 32'h3c27a647; 
-		8'd117: out = 32'h3a95af73; 
-		8'd118: out = 32'h3b524155; 
-		8'd119: out = 32'h3b54f3ca; 
-		8'd120: out = 32'hbba1ae72; 
-		8'd121: out = 32'h3ae6fe6a; 
-		8'd122: out = 32'hbbd875d2; 
-		8'd123: out = 32'hbb49c9bc; 
-		8'd124: out = 32'hbb1731b3; 
-		8'd125: out = 32'hbbc3bfed; 
-		8'd126: out = 32'h3b01c058; 
-		8'd127: out = 32'hbb4c87e1; 
-		8'd128: out = 32'h3b1e2e7e; 
-		8'd129: out = 32'h3b430c5f; 
-		8'd130: out = 32'h3a1e2a32; 
-		8'd131: out = 32'h3bccb77f; 
-		8'd132: out = 32'h379a8626; 
-		8'd133: out = 32'h3b6b0993; 
-		8'd134: out = 32'h3a9e292e; 
-		8'd135: out = 32'hbb13cfee; 
-		8'd136: out = 32'h3ac7e136; 
-		8'd137: out = 32'hbbbc6406; 
-		8'd138: out = 32'hbaa9b425; 
-		8'd139: out = 32'hbb686092; 
-		8'd140: out = 32'hbbb85463; 
-		8'd141: out = 32'h3b373752; 
-		8'd142: out = 32'hbb8b5502; 
-		8'd143: out = 32'h3bd1ba42; 
-		8'd144: out = 32'h3c8493ff; 
-		8'd145: out = 32'hbb86b56d; 
-		8'd146: out = 32'hbc06ca4c;*/
-	endcase
-
-end
-
-endmodule
-
 module FIR (
 	input logic clk, rst, stop,
 	input logic [31:0] in,
@@ -164,120 +5,334 @@ module FIR (
 	output logic [31:0] out
 );
 
-parameter [2:0] idle = 3'd0, multiply = 3'd1, add = 3'd2, finish = 3'd3;
-logic [31:0] running_sum;
-logic [7:0] decoder_in;
-logic [31:0] decoder_out;
-logic start1, start2, ready1, ready2, busy1, busy2;
-logic [31:0] adder_A;
-logic [3:0] wc;
-logic second_pass;
+// signals for adders and multipliers
+logic [72:0] [31:0] coefficients = { 32'hbc06ca4c,
+									32'hbb86b56d,
+									32'h3c8493ff,
+									32'h3bd1ba42,
+									32'hbb8b5502,
+									32'h3b373752,
+									32'hbbb85463,
+									32'hbb686092,
+									32'hbaa9b425,
+									32'hbbbc6406,
+									32'h3ac7e136,
+									32'hbb13cfee,
+									32'h3a9e292e,
+									32'h3b6b0993,
+									32'h379a8626,
+									32'h3bccb77f,
+									32'h3a1e2a32,
+									32'h3b430c5f,
+									32'h3b1e2e7e,
+									32'hbb4c87e1,
+									32'h3b01c058,
+									32'hbbc3bfed,
+									32'hbb1731b3,
+									32'hbb49c9bc,
+									32'hbbd875d2,
+									32'h3ae6fe6a,
+									32'hbba1ae72,
+									32'h3b54f3ca,
+									32'h3b524155,
+									32'h3a95af73,
+									32'h3c27a647,
+									32'h389119a3,
+									32'h3c014658,
+									32'h3b18dd0d,
+									32'hbb34e966,
+									32'h3b6e4f7d,
+									32'hbc376c18,
+									32'hbab5f4f3,
+									32'hbc0f9d82,
+									32'hbc211979,
+									32'h3aaaf59d,
+									32'hbc33a32e,
+									32'h3bff0daf,
+									32'h3a95beeb,
+									32'h3ba93beb,
+									32'h3c8bbf64,
+									32'hb7f820de,
+									32'h3c9c2bac,
+									32'h3a741f9a,
+									32'h3a94f0d3,
+									32'h3baf7891,
+									32'hbcab8865,
+									32'h3aa3dbd1,
+									32'hbcc6ccbc,
+									32'hbc6d9da8,
+									32'hbb8e2c53,
+									32'hbccb036a,
+									32'h3c9541a6,
+									32'hbc0285df,
+									32'h3ca7920f,
+									32'h3d0353c8,
+									32'h3b939c61,
+									32'h3d68738a,
+									32'hbb9b5561,
+									32'h3ccf1a8f,
+									32'h3bd599a9,
+									32'hbd6f422c,
+									32'h3c46e4b1,
+									32'hbe06636d,
+									32'hbd375f0e,
+									32'hbdca0818,
+									32'hbe825a8b,
+									32'h3ef5580e,
+									32'h3ef5580e,
+									32'hbe825a8b,
+									32'hbdca0818,
+									32'hbd375f0e,
+									32'hbe06636d,
+									32'h3c46e4b1,
+									32'hbd6f422c,
+									32'h3bd599a9,
+									32'h3ccf1a8f,
+									32'hbb9b5561,
+									32'h3d68738a,
+									32'h3b939c61,
+									32'h3d0353c8,
+									32'h3ca7920f,
+									32'hbc0285df,
+									32'h3c9541a6,
+									32'hbccb036a,
+									32'hbb8e2c53,
+									32'hbc6d9da8,
+									32'hbcc6ccbc,
+									32'h3aa3dbd1,
+									32'hbcab8865,
+									32'h3baf7891,
+									32'h3a94f0d3,
+									32'h3a741f9a,
+									32'h3c9c2bac,
+									32'hb7f820de,
+									32'h3c8bbf64,
+									32'h3ba93beb,
+									32'h3a95beeb,
+									32'h3bff0daf,
+									32'hbc33a32e,
+									32'h3aaaf59d,
+									32'hbc211979,
+									32'hbc0f9d82,
+									32'hbab5f4f3,
+									32'hbc376c18,
+									32'h3b6e4f7d,
+									32'hbb34e966,
+									32'h3b18dd0d,
+									32'h3c014658,
+									32'h389119a3,
+									32'h3c27a647,
+									32'h3a95af73,
+									32'h3b524155,
+									32'h3b54f3ca,
+									32'hbba1ae72,
+									32'h3ae6fe6a,
+									32'hbbd875d2,
+									32'hbb49c9bc,
+									32'hbb1731b3,
+									32'hbbc3bfed,
+									32'h3b01c058,
+									32'hbb4c87e1,
+									32'h3b1e2e7e,
+									32'h3b430c5f,
+									32'h3a1e2a32,
+									32'h3bccb77f,
+									32'h379a8626,
+									32'h3b6b0993,
+									32'h3a9e292e,
+									32'hbb13cfee,
+									32'h3ac7e136,
+									32'hbbbc6406,
+									32'hbaa9b425,
+									32'hbb686092,
+									32'hbbb85463,
+									32'h3b373752,
+									32'hbb8b5502,
+									32'h3bd1ba42,
+									32'h3c8493ff,
+									32'hbb86b56d,
+									32'hbc06ca4c };
+									
+logic [145:0] mready, mbusy; // first multiplier/adder at 0
+logic [149:0] aready, abusy; // 73->37->19->10->5->3->2->1
+logic start;
+logic [145:0] [31:0] inputs;
+logic [149:0] [31:0] adder_A, adder_B;
+logic [145:0] [31:0] multiplier_in;
+logic [145:0] [31:0] multiplier_out;
+logic [149:0] [31:0] adder_out;
+logic [8:0] input_counter;
+logic [2:0] state;
+parameter [2:0] idle = 3'd0, prep = 3'd1, fire = 3'd2, loop = 3'd3, finished = 3'd4;
+logic [2:0] wc;
 
-fir_decoder d1 (
-	.in(decoder_in),
-	.out(decoder_out)
-);
-
-adder_fp adder1 (
-	.clk(clk), .start(start2), .op(0),
-	.A(adder_A), .B(running_sum),
-	.ready(ready2), .busy(busy2),
-	.Y(running_sum)
-);
-	
-multiplier_fp multiplier1 (
-	.clk(clk), .start(start1),
-	.A(in), .B(decoder_out),
-	.ready(ready1), .busy(busy1),
-	.Y(adder_A)
-);
-
-	always_ff @(posedge clk) begin
-
-		if(rst) begin
-			running_sum <= 0;
-			state <= idle;
-			ready <= 0;
-			wc <= 0;
-			decoder_in <= 1;
+genvar i;
+generate
+	for (i = 0; i < 150; i++) begin : generate_block_identifier
+		if (i < 146) begin
+			multiplier_fp m1 (
+				.clk(clk), .start(start),
+				.A(coefficients[i]), .B(multiplier_in[i]),
+				.ready(mready[i]), .busy(mbusy[i]),
+				.Y(multiplier_out[i])
+			);
 		end
+		adder_fp a1 (
+			.clk(clk), .start(start), .op(0),
+			.A(adder_A[i]), .B(adder_B[i]),
+			.Y(adder_out[i])
+		);
+	end
+endgenerate
 
-		case(state)
-			
-			idle: begin
-				if (!busy1) begin
-					start1 <= 1;
-					next <= 0;
-					state <= add;
-				end
+always_ff @(posedge clk) begin
+	
+	if (rst) begin
+		input_counter <= 0;
+		state <= idle;
+		wc <= 0;
+		next <= 1;
+	end
+	
+	case (state)
+		idle: begin
+			inputs[input_counter] <= in;
+			if (!rst) begin
+				state <= prep;
+			end
+			next <= 0;
+			ready <= 0;
+		end
+		
+		prep: begin
+			//set up multiplier inputs
+			for (int j = 0; j < input_counter + 1; j++) begin
+				multiplier_in[j] <= inputs[input_counter - j];
 			end
 			
-			/*multiply: begin
-				if (wc < 7) begin
-					wc <= wc + 1;
-					start1 <= 0;
+			//set up first level of adders [72:0]
+			for (int k = 0; k < 73; k++) begin
+				if (2*k > input_counter) begin
+					adder_A[k] <= 0;
+					adder_B[k] <= 0;
 				end
-				else begin
-					wc <= 0;
-					start2 <= 1;
-					start1 <= 1;
-					adder_B <= running_sum; 
-					state <= add;
-				end
-			end*/
-			
-			add: begin
-				if (wc < 7) begin
-					wc <= wc + 1;
-					start2 <= 0;
-					start1 <= 0;
-					ready <= 0;
-					next <= 0;
-				end
-				else begin
-					if (stop) begin
-						state <= finish;
-						ready <= 1;
-						next <= 0;
+				else if(2*k == input_counter) begin
+					if (input_counter % 2) begin
+						adder_A[k] <= multiplier_out[2*k];
+						adder_B[k] <= multiplier_out[(2*k) + 1];
 					end
 					else begin
-						wc <= 0;
-						out <= running_sum;
-						if (decoder_in == 0 && second_pass) begin
-							state <= finish;
-						end
-						else begin
-							if (decoder_in == 73) begin
-								second_pass <= 1;
-							end
-							start1 <= 1;
-							start2 <= 1;
-							wc <= 0;
-							next <= 1;
-							if (second_pass) begin
-								decoder_in <= decoder_in - 1;
-							end
-							else if (decoder_in != 73) begin
-								decoder_in <= decoder_in + 1;
-							end
-							
-							if (decoder_in > 1) begin
-								ready <= 1;
-							end
-						end
+						adder_A[k] <= multiplier_out[2*k];
+						adder_B[k] <= 0;
 					end
+				end
+				else begin
+					adder_A[k] <= multiplier_out[2*k];
+					adder_B[k] <= multiplier_out[(2*k) + 1];
 				end
 			end
 			
-			finish: begin
-				ready <= 0;
-				next <= 0;
-				out <= running_sum;
+			//set up second level of adders [109:73]
+			for (int l = 73; l < 110; l++) begin
+				if (l == 109) begin
+					adder_A[l] <= adder_out[(l-73)*2];
+					adder_B[l] <= 0;
+				end
+				else begin		
+					adder_A[l] <= adder_out[(l-73)*2];
+					adder_B[l] <= adder_out[(1-73)*2+1];
+				end
 			end
 			
+			//set up third level of adders [128:110]
+			for (int z = 110; z < 129; z++) begin
+				if (z == 128) begin
+					adder_A[z] <= adder_out[(z-73)*2-1];
+					adder_B[z] <= 0;
+				end
+				else begin		
+					adder_A[z] <= adder_out[(z-73)*2-1];
+					adder_B[z] <= adder_out[(z-73)*2];
+				end
+			end
 			
+			//set up fourth level of adders [138:129]
+			for (int x = 129; x < 139; x++) begin
+				if (x == 138) begin
+					adder_A[x] <= adder_out[(x-74)*2];
+					adder_B[x] <= 0;
+				end
+				else begin		
+					adder_A[x] <= adder_out[(x-74)*2];
+					adder_B[x] <= adder_out[(x-74)*2+1];
+				end
+			end
 			
-		endcase
-	end
+			//set up fifth level of adders [143:139]
+			for (int y = 139; y < 144; y++) begin		
+					adder_A[y] <= adder_out[(y-74)*2-1];
+					adder_B[y] <= adder_out[(y-74)*2];
+			end
+			
+			//set up sixth level of adders [146:144]
+			adder_A[144] <= adder_out[139];
+			adder_B[144] <= adder_out[140];
+			adder_A[145] <= adder_out[141];
+			adder_B[145] <= adder_out[142];
+			adder_A[146] <= adder_out[143];
+			adder_B[146] <= 0;
+			
+			//set up seventh level of adders [148:147]
+			adder_A[147] <= adder_out[144];
+			adder_B[147] <= adder_out[145];
+			adder_A[148] <= adder_out[146];
+			adder_B[148] <= 0;
+			
+			// set up eighth level of adders [149]
+			adder_A[149] <= adder_out[147];
+			adder_B[149] <= adder_out[148];
+			
+			state <= fire;
+		end
+		
+		fire: begin
+			start <= 1;
+			wc <= 0;
+			state <= loop;
+		end
+		
+		loop: begin
+			if (wc < 6) begin
+				if (wc == 0) begin
+					start <= 0;
+				end
+				else if (wc == 5) begin
+					next <= 1;
+				end
+				wc <= wc + 1;
+			end
+			else if (stop || input_counter > 144) begin
+				state <= finished;
+			end
+			else begin
+				state <= idle;
+				// connect output
+				out <= adder_out[149];
+				next <= 0;
+				if (input_counter > 8) begin
+					ready <= 1;
+				end
+				input_counter <= input_counter + 1;
+			end
+		end
+		
+		finished: begin
+			ready <= 1;
+			next <= 0;
+			out <= adder_out[149];
+		end
+		
+	endcase
+end
 
 endmodule
