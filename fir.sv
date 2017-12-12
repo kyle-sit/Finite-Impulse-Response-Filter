@@ -211,7 +211,7 @@ always_ff @(posedge clk) begin
 			end
 			
 			//set up first level of adders [72:0]
-			for (int k = 0; k < 73; k++) begin
+			/*for (int k = 0; k < 73; k++) begin
 				if (2*k > input_counter) begin
 					adder_A[k] <= 0;
 					adder_B[k] <= 0;
@@ -225,6 +225,22 @@ always_ff @(posedge clk) begin
 						adder_A[k] <= multiplier_out[2*k];
 						adder_B[k] <= 0;
 					end
+				end
+				else begin
+					adder_A[k] <= multiplier_out[2*k];
+					adder_B[k] <= multiplier_out[(2*k) + 1];
+				end
+			end*/
+			
+			//set up first level of adders [72:0]
+			for (int k = 0; k < 73; k++) begin
+				if (2*k >= input_counter) begin
+					adder_A[k] <= 0;
+					adder_B[k] <= 0;
+				end
+				else if ((2*k + 1) == input_counter) begin
+					adder_A[k] <= multiplier_out[2*k];
+					adder_B[k] <= 0;
 				end
 				else begin
 					adder_A[k] <= multiplier_out[2*k];
