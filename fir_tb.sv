@@ -5,7 +5,7 @@ module m_fir_tb;
 	// internal
 	integer i = 0; // counter
 	integer j = 0;
-	integer n = 10; // total number of testvector
+	integer n = 200; // total number of testvector
 	logic[31:0] tv_A[99:0];
 	logic[31:0] tv_Y[99:0];
 	

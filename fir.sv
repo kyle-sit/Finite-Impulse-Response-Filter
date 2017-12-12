@@ -161,7 +161,7 @@ logic [149:0] [31:0] adder_A, adder_B;
 logic [145:0] [31:0] multiplier_in;
 logic [145:0] [31:0] multiplier_out;
 logic [149:0] [31:0] adder_out;
-logic [8:0] input_counter;
+logic [8:0] input_counter, counter;
 logic [2:0] state;
 parameter [2:0] idle = 3'd0, prep = 3'd1, fire = 3'd2, loop = 3'd3, finished = 3'd4;
 logic [2:0] wc;
@@ -178,8 +178,9 @@ generate
 			);
 		end
 		adder_fp a1 (
-			.clk(clk), .start(start), .op(0),
+			.clk(clk), .start(start), .op(1'b0),
 			.A(adder_A[i]), .B(adder_B[i]),
+			.ready(aready[i]), .busy(abusy[i]),
 			.Y(adder_out[i])
 		);
 	end
@@ -192,6 +193,7 @@ always_ff @(posedge clk) begin
 		state <= idle;
 		wc <= 0;
 		next <= 1;
+		counter <= 0;
 	end
 	
 	case (state)
@@ -209,28 +211,6 @@ always_ff @(posedge clk) begin
 			for (int j = 0; j < input_counter + 1; j++) begin
 				multiplier_in[j] <= inputs[input_counter - j];
 			end
-			
-			//set up first level of adders [72:0]
-			/*for (int k = 0; k < 73; k++) begin
-				if (2*k > input_counter) begin
-					adder_A[k] <= 0;
-					adder_B[k] <= 0;
-				end
-				else if(2*k == input_counter) begin
-					if (input_counter % 2) begin
-						adder_A[k] <= multiplier_out[2*k];
-						adder_B[k] <= multiplier_out[(2*k) + 1];
-					end
-					else begin
-						adder_A[k] <= multiplier_out[2*k];
-						adder_B[k] <= 0;
-					end
-				end
-				else begin
-					adder_A[k] <= multiplier_out[2*k];
-					adder_B[k] <= multiplier_out[(2*k) + 1];
-				end
-			end*/
 			
 			//set up first level of adders [72:0]
 			for (int k = 0; k < 73; k++) begin
@@ -256,7 +236,7 @@ always_ff @(posedge clk) begin
 				end
 				else begin		
 					adder_A[l] <= adder_out[(l-73)*2];
-					adder_B[l] <= adder_out[(1-73)*2+1];
+					adder_B[l] <= adder_out[(l-73)*2+1];
 				end
 			end
 			
@@ -328,14 +308,23 @@ always_ff @(posedge clk) begin
 				wc <= wc + 1;
 			end
 			else if (stop || input_counter > 144) begin
-				state <= finished;
+				if (counter == 9) begin
+					state <= finished;
+				end
+				else begin	
+					state <= idle;
+					counter <= counter + 1;
+				end
+				out <= adder_out[149];
+				next <= 0;
+				ready <= 1;
 			end
 			else begin
 				state <= idle;
 				// connect output
 				out <= adder_out[149];
 				next <= 0;
-				if (input_counter > 8) begin
+				if (input_counter > 7) begin
 					ready <= 1;
 				end
 				input_counter <= input_counter + 1;
