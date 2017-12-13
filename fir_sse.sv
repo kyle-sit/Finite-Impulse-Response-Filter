@@ -30,7 +30,6 @@ always_ff @(posedge clk) begin
 	// initialize counters to 0, take in the first input
 	if (rst) begin
 		state <= idle;
-		//next <= 1;
 		out_gold_counter <= 0;
 		current_out_gold_counter <= 0;
 		next_input <= 0;
@@ -41,12 +40,11 @@ always_ff @(posedge clk) begin
 		// idle state
 		idle: begin
 			state <= fire_fir;
-			//next <= 0;
+			frst <= 1;
 		end
 		
 		// fire the fir. store golden output 1 because sse won't run yet
 		fire_fir: begin
-			frst <= 1;
 			state <= waiting;
 			golden_outputs[0] <= out_gold;
 			out_gold_counter <= out_gold_counter + 1;

@@ -107,8 +107,7 @@ always_ff @(posedge clk) begin
 		
 		prep: begin
 			//set up multiplier inputs
-			//for (int j = 0; j < input_counter + 1; j++) begin
-			for (int j = 0; j < 43 + 1; j++) begin
+			for (int j = 0; j < input_counter + 1; j++) begin
 				multiplier_in[j] <= inputs[input_counter - j];
 			end
 			
