@@ -6,7 +6,7 @@ module FIR (
 );
 
 // signals for adders and multipliers
-logic [72:0] [31:0] coefficients = { 32'hbc06ca4c,
+logic [145:0] [31:0] coefficients = { 32'hbc06ca4c,
 									32'hbb86b56d,
 									32'h3c8493ff,
 									32'h3bd1ba42,
