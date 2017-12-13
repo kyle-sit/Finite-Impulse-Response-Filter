@@ -6,161 +6,60 @@ module FIR (
 );
 
 // signals for adders and multipliers
-logic [145:0] [31:0] coefficients = { 32'hbc06ca4c,
-									32'hbb86b56d,
-									32'h3c8493ff,
-									32'h3bd1ba42,
-									32'hbb8b5502,
-									32'h3b373752,
-									32'hbbb85463,
-									32'hbb686092,
-									32'hbaa9b425,
-									32'hbbbc6406,
-									32'h3ac7e136,
-									32'hbb13cfee,
-									32'h3a9e292e,
-									32'h3b6b0993,
-									32'h379a8626,
-									32'h3bccb77f,
-									32'h3a1e2a32,
-									32'h3b430c5f,
-									32'h3b1e2e7e,
-									32'hbb4c87e1,
-									32'h3b01c058,
-									32'hbbc3bfed,
-									32'hbb1731b3,
-									32'hbb49c9bc,
-									32'hbbd875d2,
-									32'h3ae6fe6a,
-									32'hbba1ae72,
-									32'h3b54f3ca,
-									32'h3b524155,
-									32'h3a95af73,
-									32'h3c27a647,
-									32'h389119a3,
-									32'h3c014658,
-									32'h3b18dd0d,
-									32'hbb34e966,
-									32'h3b6e4f7d,
-									32'hbc376c18,
-									32'hbab5f4f3,
-									32'hbc0f9d82,
-									32'hbc211979,
-									32'h3aaaf59d,
-									32'hbc33a32e,
-									32'h3bff0daf,
-									32'h3a95beeb,
-									32'h3ba93beb,
-									32'h3c8bbf64,
-									32'hb7f820de,
-									32'h3c9c2bac,
-									32'h3a741f9a,
-									32'h3a94f0d3,
-									32'h3baf7891,
-									32'hbcab8865,
-									32'h3aa3dbd1,
-									32'hbcc6ccbc,
-									32'hbc6d9da8,
-									32'hbb8e2c53,
-									32'hbccb036a,
-									32'h3c9541a6,
-									32'hbc0285df,
-									32'h3ca7920f,
-									32'h3d0353c8,
-									32'h3b939c61,
-									32'h3d68738a,
-									32'hbb9b5561,
-									32'h3ccf1a8f,
-									32'h3bd599a9,
-									32'hbd6f422c,
-									32'h3c46e4b1,
-									32'hbe06636d,
-									32'hbd375f0e,
-									32'hbdca0818,
-									32'hbe825a8b,
-									32'h3ef5580e,
-									32'h3ef5580e,
-									32'hbe825a8b,
-									32'hbdca0818,
-									32'hbd375f0e,
-									32'hbe06636d,
-									32'h3c46e4b1,
-									32'hbd6f422c,
-									32'h3bd599a9,
-									32'h3ccf1a8f,
-									32'hbb9b5561,
-									32'h3d68738a,
-									32'h3b939c61,
-									32'h3d0353c8,
-									32'h3ca7920f,
-									32'hbc0285df,
-									32'h3c9541a6,
-									32'hbccb036a,
-									32'hbb8e2c53,
-									32'hbc6d9da8,
-									32'hbcc6ccbc,
-									32'h3aa3dbd1,
-									32'hbcab8865,
-									32'h3baf7891,
-									32'h3a94f0d3,
-									32'h3a741f9a,
-									32'h3c9c2bac,
-									32'hb7f820de,
-									32'h3c8bbf64,
-									32'h3ba93beb,
-									32'h3a95beeb,
-									32'h3bff0daf,
-									32'hbc33a32e,
-									32'h3aaaf59d,
-									32'hbc211979,
-									32'hbc0f9d82,
-									32'hbab5f4f3,
-									32'hbc376c18,
-									32'h3b6e4f7d,
-									32'hbb34e966,
-									32'h3b18dd0d,
-									32'h3c014658,
-									32'h389119a3,
-									32'h3c27a647,
-									32'h3a95af73,
-									32'h3b524155,
-									32'h3b54f3ca,
-									32'hbba1ae72,
-									32'h3ae6fe6a,
-									32'hbbd875d2,
-									32'hbb49c9bc,
-									32'hbb1731b3,
-									32'hbbc3bfed,
-									32'h3b01c058,
-									32'hbb4c87e1,
-									32'h3b1e2e7e,
-									32'h3b430c5f,
-									32'h3a1e2a32,
-									32'h3bccb77f,
-									32'h379a8626,
-									32'h3b6b0993,
-									32'h3a9e292e,
-									32'hbb13cfee,
-									32'h3ac7e136,
-									32'hbbbc6406,
-									32'hbaa9b425,
-									32'hbb686092,
-									32'hbbb85463,
-									32'h3b373752,
-									32'hbb8b5502,
-									32'h3bd1ba42,
-									32'h3c8493ff,
-									32'hbb86b56d,
-									32'hbc06ca4c };
+logic [43:0] [31:0] coefficients = { 32'hbbd8e796, // 44 coefficients
+										32'h3b02db67,
+										32'hbc2e0e02,
+										32'hbc9c65aa,
+										32'h3c8bca7a,
+										32'h3b575958,
+										32'h3c7a3c7b,
+										32'h3c78c858,
+										32'h3b9675ab,
+										32'h3d09a22e,
+										32'hbbbd15d8,
+										32'h3cde314c,
+										32'hbbc62970,
+										32'hbc833b76,
+										32'h3b94449c,
+										32'hbda25452,
+										32'h3a05d669,
+										32'hbded80a7,
+										32'hbd6eef65,
+										32'hbd7d0c7d,
+										32'hbe8090bd,
+										32'h3f0200cf,
+										32'h3f0200cf,
+										32'hbe8090bd,
+										32'hbd7d0c7d,
+										32'hbd6eef65,
+										32'hbded80a7,
+										32'h3a05d669,
+										32'hbda25452,
+										32'h3b94449c,
+										32'hbc833b76,
+										32'hbbc62970,
+										32'h3cde314c,
+										32'hbbbd15d8,
+										32'h3d09a22e,
+										32'h3b9675ab,
+										32'h3c78c858,
+										32'h3c7a3c7b,
+										32'h3b575958,
+										32'h3c8bca7a,
+										32'hbc9c65aa,
+										32'hbc2e0e02,
+										32'h3b02db67,
+										32'hbbd8e796 };
 									
-logic [145:0] mready, mbusy; // first multiplier/adder at 0
-logic [149:0] aready, abusy; // 73->37->19->10->5->3->2->1
+// 44 multipliers, 45 adders
+logic [43:0] mready, mbusy; // first multiplier/adder at 0
+logic [44:0] aready, abusy; // 73->37->19->10->5->3->2->1
 logic start;
-logic [145:0] [31:0] inputs;
-logic [149:0] [31:0] adder_A, adder_B;
-logic [145:0] [31:0] multiplier_in;
-logic [145:0] [31:0] multiplier_out;
-logic [149:0] [31:0] adder_out;
+logic [43:0] [31:0] inputs;
+logic [44:0] [31:0] adder_A, adder_B;
+logic [43:0] [31:0] multiplier_in;
+logic [43:0] [31:0] multiplier_out;
+logic [44:0] [31:0] adder_out;
 logic [8:0] input_counter, counter;
 logic [2:0] state;
 parameter [2:0] idle = 3'd0, prep = 3'd1, fire = 3'd2, loop = 3'd3, finished = 3'd4;
@@ -168,8 +67,8 @@ logic [2:0] wc;
 
 genvar i;
 generate
-	for (i = 0; i < 150; i++) begin : generate_block_identifier
-		if (i < 146) begin
+	for (i = 0; i < 45; i++) begin : generate_block_identifier
+		if (i < 44) begin
 			multiplier_fp m1 (
 				.clk(clk), .start(start),
 				.A(coefficients[i]), .B(multiplier_in[i]),
@@ -208,12 +107,14 @@ always_ff @(posedge clk) begin
 		
 		prep: begin
 			//set up multiplier inputs
-			for (int j = 0; j < input_counter + 1; j++) begin
+			//for (int j = 0; j < input_counter + 1; j++) begin
+			for (int j = 0; j < 43 + 1; j++) begin
 				multiplier_in[j] <= inputs[input_counter - j];
 			end
 			
-			//set up first level of adders [72:0]
-			for (int k = 0; k < 73; k++) begin
+			// 22 -> 11 -> 6 -> 3 -> 2 -> 1 = 45
+			// first level of adders [21:0]
+			for (int k = 0; k < 22; k++) begin
 				if (2*k >= input_counter) begin
 					adder_A[k] <= 0;
 					adder_B[k] <= 0;
@@ -228,65 +129,38 @@ always_ff @(posedge clk) begin
 				end
 			end
 			
-			//set up second level of adders [109:73]
-			for (int l = 73; l < 110; l++) begin
-				if (l == 109) begin
-					adder_A[l] <= adder_out[(l-73)*2];
-					adder_B[l] <= 0;
-				end
-				else begin		
-					adder_A[l] <= adder_out[(l-73)*2];
-					adder_B[l] <= adder_out[(l-73)*2+1];
-				end
+			// second level of adders [22:32]
+			for (int l = 22; l < 33; l++) begin
+				adder_A[l] <= adder_out[(l-22)*2];
+				adder_B[l] <= adder_out[(l-22)*2+1];
 			end
 			
-			//set up third level of adders [128:110]
-			for (int z = 110; z < 129; z++) begin
-				if (z == 128) begin
-					adder_A[z] <= adder_out[(z-73)*2-1];
+			// third level of adders [33:38]
+			for (int z = 33; z < 39; z++) begin
+				if (z == 38) begin
+					adder_A[z] <= adder_out[(z-22)*2];
 					adder_B[z] <= 0;
 				end
 				else begin		
-					adder_A[z] <= adder_out[(z-73)*2-1];
-					adder_B[z] <= adder_out[(z-73)*2];
+					adder_A[z] <= adder_out[(z-22)*2];
+					adder_B[z] <= adder_out[(z-22)*2+1];
 				end
 			end
-			
-			//set up fourth level of adders [138:129]
-			for (int x = 129; x < 139; x++) begin
-				if (x == 138) begin
-					adder_A[x] <= adder_out[(x-74)*2];
-					adder_B[x] <= 0;
-				end
-				else begin		
-					adder_A[x] <= adder_out[(x-74)*2];
-					adder_B[x] <= adder_out[(x-74)*2+1];
-				end
+			// fourth level of adders [39:41]
+			for (int x = 39; x < 42; x++) begin	
+				adder_A[x] <= adder_out[(x-22)*2-1];
+				adder_B[x] <= adder_out[(x-22)*2];
 			end
 			
-			//set up fifth level of adders [143:139]
-			for (int y = 139; y < 144; y++) begin		
-					adder_A[y] <= adder_out[(y-74)*2-1];
-					adder_B[y] <= adder_out[(y-74)*2];
-			end
+			// fifth level of adders [42:43]
+			adder_A[42] <= adder_out[39];
+			adder_B[42] <= adder_out[40];
+			adder_A[43] <= adder_out[41];
+			adder_B[43] <= 0;
 			
-			//set up sixth level of adders [146:144]
-			adder_A[144] <= adder_out[139];
-			adder_B[144] <= adder_out[140];
-			adder_A[145] <= adder_out[141];
-			adder_B[145] <= adder_out[142];
-			adder_A[146] <= adder_out[143];
-			adder_B[146] <= 0;
-			
-			//set up seventh level of adders [148:147]
-			adder_A[147] <= adder_out[144];
-			adder_B[147] <= adder_out[145];
-			adder_A[148] <= adder_out[146];
-			adder_B[148] <= 0;
-			
-			// set up eighth level of adders [149]
-			adder_A[149] <= adder_out[147];
-			adder_B[149] <= adder_out[148];
+			// sixth level of adders [44]
+			adder_A[44] <= adder_out[42];
+			adder_B[44] <= adder_out[43];
 			
 			state <= fire;
 		end
@@ -307,24 +181,26 @@ always_ff @(posedge clk) begin
 				end
 				wc <= wc + 1;
 			end
-			else if (stop || input_counter > 144) begin
-				if (counter == 9) begin
+			else if (stop || input_counter > 42) begin
+				// should probably be 6
+				if (counter == 6) begin
 					state <= finished;
 				end
 				else begin	
 					state <= idle;
 					counter <= counter + 1;
 				end
-				out <= adder_out[149];
+				out <= adder_out[44];
 				next <= 0;
 				ready <= 1;
 			end
 			else begin
 				state <= idle;
 				// connect output
-				out <= adder_out[149];
+				out <= adder_out[44];
 				next <= 0;
-				if (input_counter > 7) begin
+				// should probably be 5
+				if (input_counter > 5) begin
 					ready <= 1;
 				end
 				input_counter <= input_counter + 1;
@@ -334,7 +210,7 @@ always_ff @(posedge clk) begin
 		finished: begin
 			ready <= 1;
 			next <= 0;
-			out <= adder_out[149];
+			out <= adder_out[44];
 		end
 		
 	endcase
